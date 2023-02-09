@@ -26,7 +26,7 @@ import { catalog } from './admin/catalog.js'
       errorMessageResponse: 'Сервер базы данных недоступен. Действие отменено.'
     })
 
-    catalog()
+    return catalog()
   }
 
   if (cookie) return site.replace(site.toString().replace(/[^\/]*$/, '') + 'table.html')
