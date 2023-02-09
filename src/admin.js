@@ -27,18 +27,18 @@ import { catalog } from './admin/catalog.js'
     })
 
     catalog()
-  } else if (cookie) {
-    site.replace(site.toString().replace(/[^\/]*$/, '') + 'table.html')
-
-    // подключение сервиса данных
-    document.dataAdmin = new DataJSON({
-      url: 'http://localhost:4545/users',
-      urlDemo: '../db-demo/users.json',
-      errorMessageResponse: 'Сервер регистрации недоступен. Аутентификация невозможна.'
-    })
-
-    // авторизация, параметры: количествоДнейХраненияКуки
-    authorization(30)
   }
+
+  if (cookie) return site.replace(site.toString().replace(/[^\/]*$/, '') + 'table.html')
+
+  // подключение сервиса данных
+  document.dataAdmin = new DataJSON({
+    url: 'http://localhost:4545/users',
+    urlDemo: '../db-demo/users.json',
+    errorMessageResponse: 'Сервер регистрации недоступен. Аутентификация невозможна.'
+  })
+
+  // авторизация, параметры: количествоДнейХраненияКуки
+  authorization(30)
 
 })()
